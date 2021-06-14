@@ -1,0 +1,27 @@
+.footer {
+	background: linear-gradient(217deg, #076a94, #052f5f);
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	display: flex;
+}
+.footerLeft {
+	width: 50%;
+	border: solid black;
+	color: azure;
+}
+.footerList {
+	list-style-type: none;
+}
+.footerRight {
+	border: solid black;
+	width: 50%;
+	text-align: center;
+}
+.footerLinks {
+	color: azure;
+}
+.footerLinks:visited {
+	color: rgb(208, 247, 247);
+}

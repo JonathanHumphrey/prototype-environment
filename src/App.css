@@ -1,0 +1,37 @@
+@font-face {
+	font-family: "LEMONMILK";
+	src: url("/src/Fonts/LEMONMILK-Regular.otf") format("opentype");
+}
+
+html {
+	background: hsla(204, 72%, 23%, 1);
+
+	background: linear-gradient(
+		45deg,
+		hsla(204, 72%, 23%, 1) 5%,
+		hsla(199, 86%, 28%, 1) 90%
+	);
+
+	background: -moz-linear-gradient(
+		45deg,
+		hsla(204, 72%, 23%, 1) 5%,
+		hsla(199, 86%, 28%, 1) 90%
+	);
+
+	background: -webkit-linear-gradient(
+		45deg,
+		hsla(204, 72%, 23%, 1) 5%,
+		hsla(199, 86%, 28%, 1) 90%
+	);
+
+	filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#104364", endColorstr="#0A5D84", GradientType=1 );
+	height: 100%;
+}
+.App {
+	text-align: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin: 0;
+}

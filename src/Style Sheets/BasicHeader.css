@@ -1,0 +1,81 @@
+h1 {
+	color: azure;
+	font-family: LEMONMILK;
+	letter-spacing: 10px;
+}
+.headerTitle {
+	width: 20vw;
+	height: 10vh;
+}
+.bHeader {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: top;
+	background: linear-gradient(217deg, #076a94, #052f5f);
+	width: 100%;
+}
+.navBar {
+	width: 60vw;
+	height: 8vh;
+	margin: 0.5em;
+}
+
+.navbarLink {
+	border: solid black;
+	border-radius: 15%;
+	padding: 10px;
+	color: black;
+	background-color: #6d7e89;
+}
+.navbarLink:hover {
+	background-color: #eee5e9;
+	flex-grow: 4;
+}
+.navbarlink:active {
+	color: black;
+}
+.navbarLink:visited {
+	color: black;
+}
+.searchBar {
+	height: 10vh;
+	width: 20vw;
+	margin-bottom: -5%;
+}
+.navList {
+	list-style-type: none;
+	list-style-position: outside;
+	display: flex;
+	justify-content: space-evenly;
+}
+.searchBarTitle {
+	margin: 0;
+}
+.textField {
+	width: 51%;
+}
+.movingAnchors {
+	margin-top: 1.5%;
+}
+.searchBarInput {
+	padding: 10px;
+	font-size: 17px;
+	border: 1px solid grey;
+	float: center;
+	width: 51%;
+	background: #f1f1f1;
+}
+.searchBarButton {
+	float: center;
+	width: 20%;
+	padding: 10px;
+	background: #2196f3;
+	color: white;
+	font-size: 17px;
+	border: 1px solid grey;
+	border-left: none;
+	cursor: pointer;
+}
+.searchBarButton:hover {
+	background-color: #2195f38f;
+}
