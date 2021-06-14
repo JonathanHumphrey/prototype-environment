@@ -21,6 +21,7 @@ h1 {
 }
 
 .navbarLink {
+	font-family: LEMONMILK;
 	border: solid black;
 	border-radius: 15%;
 	padding: 10px;
@@ -49,6 +50,9 @@ h1 {
 	justify-content: space-evenly;
 }
 .searchBarTitle {
+	font-family: LEMONMILK;
+	color: azure;
+	letter-spacing: 10px;
 	margin: 0;
 }
 .textField {

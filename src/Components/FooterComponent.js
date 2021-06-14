@@ -1,7 +1,14 @@
 import React from 'react'
 import '../Style Sheets/FooterStyle.css'
 
+import { useState } from 'react'
+
+
+
 export default function FooterComponent() {
+    const [isVisible, setVisible] = useState(false)
+
+
     return (
         <div className='footer'>
             <div className='footerLeft'>
@@ -18,12 +25,10 @@ export default function FooterComponent() {
                         >Home</a>
                     </li>
                     <li>
-                        <a
-                            href='https://twitter.com/home' 
-                            target='_blank' 
-                            rel="noreferrer"
+                        <p
                             className='footerLinks'
-                        >Contact</a>
+                            onClick={() => setVisible(!isVisible)}
+                        >Contact</p>
                     </li>
                     <li>
                         <a
@@ -34,6 +39,17 @@ export default function FooterComponent() {
                         >F.A.Q</a>
                     </li>
                 </ul>
+                {isVisible ? 
+                    <div className='popupModal'>
+                        <input
+                            className='closeBtn'
+                            type='button'
+                            onClick={() => setVisible(!isVisible)}
+                            value='X'
+                        />
+                        <p>content here</p>
+                    </div>
+                : null}
             </div>
         </div>
     )

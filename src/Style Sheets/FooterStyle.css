@@ -10,6 +10,7 @@
 	width: 50%;
 	border: solid black;
 	color: azure;
+	margin: 0;
 }
 .footerList {
 	list-style-type: none;
@@ -18,10 +19,39 @@
 	border: solid black;
 	width: 50%;
 	text-align: center;
+	margin: 0;
 }
 .footerLinks {
 	color: azure;
+	cursor: pointer;
 }
 .footerLinks:visited {
 	color: rgb(208, 247, 247);
+}
+.popupModal {
+	border: solid black;
+	border-radius: 20px;
+	position: fixed;
+	width: 20%;
+	margin: 0;
+	bottom: 15vh;
+	right: 0vh;
+	z-index: -1;
+	background-color: #6d7e89;
+	height: 15vh;
+}
+.closeBtn {
+	position: absolute;
+	top: 1vh;
+	right: 0.5vw;
+	border-radius: 20px;
+	border: none;
+	background-color: #2196f3;
+	padding: 10px;
+	font-size: 15px;
+	font-family: LEMONMILK;
+	text-align: center;
+}
+.closeBtn:hover {
+	background-color: #2195f38f;
 }
