@@ -14,16 +14,18 @@
 }
 .footerList {
 	list-style-type: none;
+	margin: 0;
 }
 .footerRight {
 	border: solid black;
 	width: 50%;
-	text-align: center;
+	text-align: right;
 	margin: 0;
 }
 .footerLinks {
 	color: azure;
 	cursor: pointer;
+	margin: 0 5px 5px 0;
 }
 .footerLinks:visited {
 	color: rgb(208, 247, 247);
@@ -39,6 +41,7 @@
 	z-index: -1;
 	background-color: #6d7e89;
 	height: 15vh;
+	text-align: center;
 }
 .closeBtn {
 	position: absolute;
