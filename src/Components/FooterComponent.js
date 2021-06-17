@@ -1,8 +1,15 @@
 import React from 'react'
 import '../Style Sheets/FooterStyle.css'
 
-import { motion, AnimateSharedLayout, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState } from 'react'
+
+import fakeLogo from '../Images/fakeLogo.png'
+
+const topFunction = () => {
+    document.body.scrollTop = 0; 
+    document.documentElement.scrollTop = 0;
+}
 
 
 export default function FooterComponent() {
@@ -13,32 +20,47 @@ export default function FooterComponent() {
     return (
         <div className='footer'>
             <div className='footerLeft'>
-                <p>doody</p>
+                <div className='pageInfo'>
+                    <p className='information'>Info</p>
+                    <p className='information'>Info</p>
+                    <p className='information'>Info</p>
+                    <p className='information'>Copyright &copy; 2021 </p>
+                </div>
+                <div className='logo'>
+                    <img className='logoImg' src={fakeLogo} alt='a spot for your logo to go'></img>
+                </div>
             </div>
             <div className='footerRight'>
-                <ul className='footerList'>
-                    <li>
-                        <p
-                            className='footerLinks'
-                            onClick={(event) => { setVisible(!isVisible);  setId(event.target.id)}}
-                            id='0'
-                        >Contact</p>
-                    </li>
-                    <li>
-                        <p
-                            className='footerLinks'
-                            onClick={(event) => { setVisible(!isVisible);  setId(event.target.id)}}
-                            id='1'
-                        >FAQ</p>
-                    </li>
-                    <li>
-                        <p
-                            className='footerLinks'
-                            onClick={(event) => { setVisible(!isVisible);  setId(event.target.id)}}
-                            id='2'
-                        >Other</p>
-                    </li>
-                </ul>
+                <div className='functionButtons'>
+                    <p
+                        onClick={topFunction}
+                    >Back to Top</p>
+                </div>
+                <div className='popupNav'>
+                    <ul className='footerList'>
+                        <li>
+                            <p
+                                className='footerLinks'
+                                onClick={(event) => { setVisible(!isVisible);  setId(event.target.id)}}
+                                id='0'
+                            >Contact</p>
+                        </li>
+                        <li>
+                            <p
+                                className='footerLinks'
+                                onClick={(event) => { setVisible(!isVisible);  setId(event.target.id)}}
+                                id='1'
+                            >FAQ</p>
+                        </li>
+                        <li>
+                            <p
+                                className='footerLinks'
+                                onClick={(event) => { setVisible(!isVisible);  setId(event.target.id)}}
+                                id='2'
+                            >Other</p>
+                        </li>
+                    </ul>
+                </div>
                 {isVisible ? 
                     <motion.div className='popupModal'
                         drag
@@ -57,8 +79,10 @@ export default function FooterComponent() {
                             id='buttonInput'
                         />
                         
-                        <h3>{itemsList[id].title}</h3>
-                        <p>{itemsList[id].content}</p>
+                        <div className='modalContent'>
+                            <h3>{itemsList[id].title}</h3>
+                            <p>{itemsList[id].content}</p>
+                        </div>
                         
                     </motion.div>
                 : null}

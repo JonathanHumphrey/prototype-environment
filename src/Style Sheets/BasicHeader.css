@@ -27,6 +27,7 @@ h1 {
 	padding: 10px;
 	color: black;
 	background-color: #6d7e89;
+	text-decoration: none;
 }
 .navbarLink:hover {
 	background-color: #eee5e9;

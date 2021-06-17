@@ -24,7 +24,7 @@ export default function BasicHeader() {
                             target='_blank' 
                             rel="noreferrer"
                             className='navbarLink'
-                        >Socials
+                        >Button
                         </a>
                     </motion.div>
                     <motion.div 
@@ -36,7 +36,7 @@ export default function BasicHeader() {
                             target='_blank' 
                             rel="noreferrer"
                             className='navbarLink'
-                        >Socials
+                        >Button
                         </a>
                     </motion.div>
                     <motion.div 
@@ -48,7 +48,7 @@ export default function BasicHeader() {
                             target='_blank' 
                             rel="noreferrer"
                             className='navbarLink'
-                        >Socials
+                        >Button
                         </a>
                     </motion.div>
                 </ul>

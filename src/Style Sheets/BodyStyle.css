@@ -14,6 +14,7 @@ h2 {
 	flex-direction: column;
 	justify-content: center;
 	min-height: 100%;
+	margin-bottom: 8vh;
 }
 .bodyComponent {
 	height: 85vh;
