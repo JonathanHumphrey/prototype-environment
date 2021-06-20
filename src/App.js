@@ -1,18 +1,24 @@
+import React, { useState, useEffect } from "react";
+import Context from "./Context/Context";
 
-import './App.css';
-import BasicHeader from './Components/BasicHeader'
-import BodyComponent from './Components/BodyComponent'
-import FooterComponent from './Components/FooterComponent'
+import './Styles/global.scss'
+
+import BasicHeader from "./Components/BasicHeader";
+import BodyComponent from "./Components/BodyComponent";
+import FooterComponent from "./Components/FooterComponent";
+
 
 
 function App() {
-  return (
-    <div className="App">
-      <BasicHeader />
-      <BodyComponent />
-      <FooterComponent />
-    </div>
-  );
+	return (
+		<Context>
+			<div className="App">
+				<BasicHeader />
+				<BodyComponent />
+				<FooterComponent />
+			</div>
+		</Context>
+	);
 }
 
 export default App;

@@ -1,0 +1,119 @@
+@import "../Styles/Mixins/flexbox.scss";
+
+.footer {
+	background: linear-gradient(217deg, #076a94, #052f5f);
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 8vh;
+	display: flex;
+	.footerLeft {
+		@include flexbox(row, inherit, flex-end);
+		width: 50%;
+		border-right: 1px black solid;
+		color: azure;
+		margin: 0;
+		margin-left: auto;
+		order: 1;
+		.pageInfo {
+			width: 75%;
+			display: inherit;
+			.information {
+				font-family: LEMONMILK;
+				font-size: 1.5rem;
+				margin: 0vw 1.5vw 0vw 0vw;
+				height: 2vh;
+			}
+		}
+		.logo {
+			width: 25%;
+			.logoImg {
+				float: right;
+				width: 10vh;
+				height: 8vh;
+				opacity: 0.5;
+			}
+		}
+	}
+	.footerRight {
+		width: 50%;
+		border-left: 1px black solid;
+		margin: 0;
+		order: 2;
+		display: inherit;
+		flex-flow: column wrap;
+		.functionButtons {
+			cursor: pointer;
+			text-align: left;
+			width: 25%;
+			order: 1;
+			margin-left: 1vw;
+			margin-top: 1rem;
+			&:first-child {
+				font-family: LEMONMILK;
+				color: azure;
+				font-size: 1.5rem;
+			}
+		}
+		.popupNav {
+			order: 2;
+			text-align: right;
+			.footerList {
+				list-style-type: none;
+				margin: 0;
+				order: 2;
+				.footerLinks {
+					color: azure;
+					font-family: LEMONMILK;
+					font-size: 1.5rem;
+					cursor: pointer;
+					margin: 0.5rem 1rem 1rem 0;
+					&:visited {
+						color: rgb(208, 247, 247);
+					}
+				}
+			}
+		}
+		.popupModal {
+			border: solid black;
+			border-radius: 20px;
+			position: fixed;
+			width: 20%;
+			margin: 0;
+			bottom: 12vh;
+			right: 1.5vw;
+			z-index: -1;
+			background-color: #6d7e89;
+			height: 40vh;
+			text-align: center;
+			.closeBtn {
+				position: absolute;
+				top: 0.5vh;
+				right: 0.25vw;
+				border-radius: 20px;
+				border: none;
+				background-color: #2196f3;
+				padding: 10px;
+				font-size: 1.5rem;
+				font-family: LEMONMILK;
+				text-align: center;
+				&:hover {
+					background-color: #2195f38f;
+				}
+			}
+			.modalContent {
+				background-color: #eee5e9;
+				font-family: LEMONMILK;
+				font-size: 1.5rem;
+				margin: 2rem;
+				height: 75%;
+				border-radius: 20px;
+				h3 {
+					font-size: 2rem;
+					margin-bottom: 3rem;
+				}
+			}
+		}
+	}
+}

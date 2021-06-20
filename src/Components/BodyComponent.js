@@ -1,78 +1,71 @@
-import React from "react";
-import { useState } from "react";
+// Functional imports
+import React, { useState, useContext } from "react";
 import { motion, AnimateSharedLayout, AnimatePresence } from "framer-motion";
-import "../Style Sheets/BodyStyle.css";
-
+// Context
+import { appContext } from "../Context/Context";
+// Styles
+import scss from "./body.module.scss";
 
 export default function BodyComponent() {
-  return (
-    <div className='container'>
-        <AnimateSharedLayout>
-          <motion.ul className='popout' layout initial={{ borderRadius: 25 }}>
-            {itemsList.map(item => (
-              
-              <Item key={item.index} title={item.title} content={item.content}/>
-              
-            ))}
-          </motion.ul>
-      </AnimateSharedLayout>
-    </div>
-    
-  );
+
+  // Imported from context.jsx, contains data for the popout menu
+	const { bodyItemsList } = useContext(appContext);   
+
+  // This is a little confusing but the heirarchy is defined in the .scss file. 
+	return (
+		<div className={scss["container"]}>
+			<AnimateSharedLayout>
+				<motion.ul
+					className={scss["popout"]}
+					layout
+					initial={{ borderRadius: 25 }}
+				>
+					{bodyItemsList.map((item) => (
+						<Item key={item.index} title={item.title} content={item.content} />
+					))}
+				</motion.ul>
+			</AnimateSharedLayout>
+		</div>
+	);
 }
 
-function Item({title, content}) {
-  const [isOpen, setIsOpen] = useState(false);
+function Item({ title, content }) {
+	const [isOpen, setIsOpen] = useState(false);
 
-  const toggleOpen = () => setIsOpen(!isOpen);
-  return (
-    <motion.li className='popoutOption' layout onClick={toggleOpen} initial={{ borderRadius: 10 }}>
-      <motion.div className="avatar" layout>
-        <p className='hamburger'>&#9776;</p>
-        <h2>{title}</h2>
-      </motion.div>
-      <AnimatePresence>{isOpen && <Content title={title} content={content}/>}</AnimatePresence>
-    </motion.li>
-  );
+	const toggleOpen = () => setIsOpen(!isOpen);
+
+	return (
+		<motion.li
+			className={scss["popoutOption"]}
+			layout
+			onClick={toggleOpen}
+			initial={{ borderRadius: 10 }}
+		>
+			<motion.div className={scss["avatar"]} layout>
+				<p className={scss["hamburger"]}>&#9776;</p>
+				<h2>{title}</h2>
+			</motion.div>
+			<AnimatePresence>
+				{isOpen && <Content title={title} content={content} />}
+			</AnimatePresence>
+		</motion.li>
+	);
 }
 
-function Content({title, content}) {
-  return (
-    <motion.div
-      layout
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
-      <div className="row">
-        <p className='content'>{content}</p>
-      </div>
-      
-    </motion.div>
-  );
+function Content({ title, content }) {
+	return (
+		<motion.div
+			className={scss["contentHolder"]}
+			layout
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			transition={{ duration: 0.5 }}
+			exit={{ opacity: 0 }}
+		>
+			<div className={scss["row"]}>
+				<p className={scss["content"]}>{content}</p>
+			</div>
+		</motion.div>
+	);
 }
 
-
-const itemsList = [
-  {
-    title: 'First Panel with a really long title ',
-    index: 0,
-    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vitae odio ullamcorper, aliquam diam sed, iaculis magna. Nunc tristique, quam ac vulputate posuere, dolor enim finibus nulla, vitae convallis orci leo nec lectus. Phasellus congue mi in viverra ullamcorper. Proin quis sapien mattis, varius orci eget, porttitor nulla. Fusce egestas justo odio, vitae venenatis nulla pretium a. Praesent sollicitudin euismod convallis. Maecenas sit amet hendrerit odio. Maecenas euismod mi at rhoncus euismod. Aliquam at ultricies tellus. Nulla facilisi. Etiam auctor, sem eget vulputate fringilla, augue orci gravida purus, tincidunt luctus magna diam eu enim. Nullam eget tincidunt lacus. Nam vel faucibus leo, ut vulputate mi. Curabitur vel ante fermentum, lacinia magna sed, egestas tellus.
-
-    Nulla ut turpis ante. Etiam dictum efficitur iaculis. Vestibulum ex libero, molestie eu urna id, aliquam rhoncus nulla. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed molestie ligula id nunc consequat porta. Vivamus ac pharetra lacus, in posuere nisi. Nullam sodales in risus at aliquet..`
-  },
-  {
-    title: 'Second Panel',
-    index: 1,
-    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vitae odio ullamcorper, aliquam diam sed, iaculis magna. Nunc tristique, quam ac vulputate posuere, dolor enim finibus nulla, vitae convallis orci leo nec lectus. Phasellus congue mi in viverra ullamcorper. Proin quis sapien mattis, varius orci eget, porttitor nulla. Fusce egestas justo odio, vitae venenatis nulla pretium a. Praesent sollicitudin euismod convallis. Maecenas sit amet hendrerit odio. Maecenas euismod mi at rhoncus euismod. Aliquam at ultricies tellus. Nulla facilisi. Etiam auctor, sem eget vulputate fringilla, augue orci gravida purus, tincidunt luctus magna diam eu enim. Nullam eget tincidunt lacus. Nam vel faucibus leo, ut vulputate mi. Curabitur vel ante fermentum, lacinia magna sed, egestas tellus.
-
-    Nulla ut turpis ante. Etiam dictum efficitur iaculis. Vestibulum ex libero, molestie eu urna id, aliquam rhoncus nulla. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed molestie ligula id nunc consequat porta. Vivamus ac pharetra lacus, in posuere nisi. Nullam sodales in risus at aliquet.`
-  },
-  {
-    title: 'Third Panel',
-    index: 2,
-    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vitae odio ullamcorper, aliquam diam sed, iaculis magna. Nunc tristique, quam ac vulputate posuere, dolor enim finibus nulla, vitae convallis orci leo nec lectus. Phasellus congue mi in viverra ullamcorper. Proin quis sapien mattis, varius orci eget, porttitor nulla. Fusce egestas justo odio, vitae venenatis nulla pretium a. Praesent sollicitudin euismod convallis. Maecenas sit amet hendrerit odio. Maecenas euismod mi at rhoncus euismod. Aliquam at ultricies tellus. Nulla facilisi. Etiam auctor, sem eget vulputate fringilla, augue orci gravida purus, tincidunt luctus magna diam eu enim. Nullam eget tincidunt lacus. Nam vel faucibus leo, ut vulputate mi. Curabitur vel ante fermentum, lacinia magna sed, egestas tellus.
-
-    Nulla ut turpis ante. Etiam dictum efficitur iaculis. Vestibulum ex libero, molestie eu urna id, aliquam rhoncus nulla. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed molestie ligula id nunc consequat porta. Vivamus ac pharetra lacus, in posuere nisi. Nullam sodales in risus at aliquet.`
-  }
-]
