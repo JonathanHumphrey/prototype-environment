@@ -1,13 +1,17 @@
 // Functional Imports
-import React from 'react'
+import React, { useState, useContext } from "react";
 import { motion } from "framer-motion"
-
+// Context
+import { appContext } from "../Context/Context";
 //Styles
 import scss from "./header.module.scss";
 
 
 
+
+
 export default function BasicHeader() {
+    const { bodyIndex, setBodyIndex } = useContext(appContext);
     return (
         <div className={scss["bHeader"]}>
             <div className={scss["headerTitle"]}>
@@ -20,37 +24,37 @@ export default function BasicHeader() {
                         className={scss["movingAnchors"]}
                         whileHover={{scale:1.5, transition:{duration:.5, stiffness:50, damping:.8}}} 
                     >
-                        <a 
-                            href='https://twitter.com/home' 
-                            target='_blank' 
-                            rel="noreferrer"
+                        <button
+                            onClick={(e) => { setBodyIndex(e.target.id); console.log(e.target.id)}}
                             className={scss["navBarLink"]}
-                        >Button
-                        </a>
+                            id='Home'
+                            type='button'
+                        >Home
+                        </button>
                     </motion.div>
                     <motion.div 
                         className={scss["movingAnchors"]}
                         whileHover={{scale:1.5, transition:{duration:.5, stiffness:50, damping:.8}}} 
                     >
-                        <a 
-                            href='https://twitter.com/home' 
-                            target='_blank' 
-                            rel="noreferrer"
+                        <button
+                            onClick={(e) => { setBodyIndex(e.target.id); console.log(e.target.id)}}
                             className={scss["navBarLink"]}
-                        >Button
-                        </a>
+                            id='Gallery'
+                            type='button'
+                        >Gallery
+                        </button>
                     </motion.div>
                     <motion.div 
                         className={scss["movingAnchors"]}
                         whileHover={{scale:1.5, transition:{duration:.5, stiffness:50, damping:.8}}} 
                     >
-                        <a 
-                            href='https://twitter.com/home' 
-                            target='_blank' 
-                            rel="noreferrer"
+                        <button
+                            onClick={(e) => { setBodyIndex(e.target.id); console.log(bodyIndex)}}
                             className={scss["navBarLink"]}
+                            id='poop'
+                            type='button'
                         >Button
-                        </a>
+                        </button>
                     </motion.div>
                 </ul>
             </div>

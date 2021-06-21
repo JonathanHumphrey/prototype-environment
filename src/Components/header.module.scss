@@ -25,19 +25,20 @@
 			display: flex;
 			justify-content: space-evenly;
 			.movingAnchors {
-				margin-top: 3.5%;
+				margin-top: 1.5%;
 				.navBarLink {
 					font-family: LEMONMILK;
 					font-size: 2rem;
 					border: solid black;
 					border-radius: 15%;
 					padding: 1.1rem;
-					color: azure;
+					color: black;
 					background-color: #6d7e89;
 					text-decoration: none;
 					&:hover {
 						background-color: #eee5e9;
 						flex-grow: 4;
+						color: black;
 					}
 					&:active {
 						color: black;

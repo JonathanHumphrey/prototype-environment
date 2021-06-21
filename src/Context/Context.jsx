@@ -1,11 +1,49 @@
 import React, { createContext, useState, useEffect } from 'react'
 
+import dog from '../Images/dog.png'
+import thing from '../Images/test.jpg'
+import fakeLogo from '../Images/fakeLogo.png'
+import angy from '../Images/angydog.jpg'
+import otherThing from '../Images/download.jpg'
+
+    
 export const appContext = createContext()
 
 
 
-const Context = ({ children }) =>{
+const Context = ({ children }) => {
+
+    const [photos, setPhotos] = useState([
+        {
+            photo: dog,
+            text: 'first',
+            key: 0
+        },
+        {
+            photo: thing,
+            text: 'second',
+            key: 1
+        },
+        {
+            photo: fakeLogo,
+            text: 'third',
+            key: 2
+        },
+         {
+            photo: angy,
+            text: 'fourth',
+            key: 3
+        },
+        {
+            photo: otherThing,
+            text: 'fifth',
+            key: 4
+        }, 
+    ])
+    // used to display different body Components
+    const [bodyIndex, setBodyIndex] = useState('Home')
     
+    // Items that can variably be assigned to the popout modal 
     const [footerItemsList, setFooterItems] = useState({
         0: {
             title: "Contact",
@@ -28,7 +66,7 @@ const Context = ({ children }) =>{
             content: "",
         }
     })
-
+    // Items that are in the body accordian object
     const [bodyItemsList, setBodyItemsList] = useState(
         [
             {
@@ -58,10 +96,15 @@ const Context = ({ children }) =>{
         
     }, [])
     return (
-        <appContext.Provider value={{
-            footerItemsList: footerItemsList,
-            bodyItemsList: bodyItemsList
-        }}>
+        <appContext.Provider
+            value={{
+                footerItemsList: footerItemsList,
+                bodyItemsList: bodyItemsList,
+                bodyIndex: bodyIndex,
+                setBodyIndex: setBodyIndex,
+                photos: photos
+            }}
+        >
             {children}
         </appContext.Provider>
     )
