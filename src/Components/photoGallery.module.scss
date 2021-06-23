@@ -1,34 +1,43 @@
 @import "../Styles/Mixins/flexbox.scss";
 
 .galleryContainer {
-	border: solid rgb(219, 18, 18);
 	margin: 2rem;
-	display: flex;
 	@include flexbox(column, center, space-evenly);
+	align-items: center;
 	width: 80vw;
-	.row {
-		@include flexbox(row, flex-start, space-evenly);
+	.images {
+		background: #6d7e89;
+		padding: 20px;
+		border-radius: 25px;
+		box-shadow: 8px 8px 3px #0a0a0a;
+		display: inherit;
+		justify-content: center;
 		flex-wrap: wrap;
 		width: 90%;
-		border: solid rgb(248, 247, 247);
 		margin: 1rem;
 		.item {
 			margin: 2rem;
-			border: solid rgb(73, 187, 51);
 			width: 25%;
 			text-align: center;
+			
 			p {
 				font-size: 1rem;
 				font-family: LEMONMILK;
 				color: azure;
-				text-align: left;
+				text-align: right;
+				margin-right: 8rem;
 			}
 			img {
-				height: 10rem;
-				width: auto;
+				
+				border-radius: 25px;
+				background-color: #eee5e9;
+				height: 20rem;
+				width: 20rem;
 				margin: 0;
 				object-fit: cover;
+				box-shadow: 5px 5px 3px #0a0a0a;
 			}
+			
 		}
 	}
 }
