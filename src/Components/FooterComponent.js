@@ -99,7 +99,7 @@ export default function FooterComponent() {
 								bottom: 0,
 							}}
 						>
-							<input
+							<motion.input
 								className={scss["closeBtn"]}
 								type="button"
 								onClick={() => {
