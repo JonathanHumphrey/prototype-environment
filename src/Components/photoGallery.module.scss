@@ -40,4 +40,38 @@
 			
 		}
 	}
+	.popupPicture{
+		text-align: center;
+		border: solid black;
+		width: 70rem;
+		height: 70rem;
+		position: absolute;
+		top: -15;
+		left: 20;
+		background: #eee5e9;
+		border-radius: 25px;
+		.closeBtn {
+			position: absolute;
+			cursor: pointer;
+			top: 0.5vh;
+			right: 0.25vw;
+			border-radius: 20px;
+			border: none;
+			background-color: #2196f3;
+			padding: 10px;
+			font-size: 1.5rem;
+			font-family: LEMONMILK;
+			text-align: center;
+			&:hover {
+				background-color: #2195f38f;
+			}
+		}
+		img{
+			margin-top: 10rem;
+			align-self: center;
+			width: 40rem;
+			height: 40rem;
+			object-fit: cover;
+		}
+	}
 }

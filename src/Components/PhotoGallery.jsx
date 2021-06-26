@@ -12,8 +12,22 @@ export default function PhotoGallery() {
 
 	// Setting up state for the animations of the photos
 	const [isOpen, setIsOpen] = useState(false);
-	const [id, setId] = useState(99)
-	const toggleOpen = () => setIsOpen(!isOpen);
+	const [id, setId] = useState(0)
+
+	 const toggleOpen = () => {
+		setIsOpen(!isOpen)
+	}; 
+	 /* const toggleOpen = () => {
+		console.log(isOpen)
+		if (isOpen) {
+			setIsOpen(false);
+			console.log(isOpen)
+		}
+		if (event.target.id !== id) {
+			setId(event.target.id);
+		} 
+		setIsOpen(true); 
+	};  */
 
 	const variants = {
 		hightlighted: { scale: 1.5, opacity: 1 },
@@ -22,29 +36,39 @@ export default function PhotoGallery() {
 	return (
 		<div className={scss["galleryContainer"]}>
 			<div className={scss["images"]}>
-				{photos.map((e) => (
+				{photos.map((e, i) => (
 
 					<motion.div
 						className={scss["item"]}
 						whileHover={{ scale: 1.1 }}
-						onClick={() => {
+						onClick={(e) => {
 							toggleOpen()
-							setId(e.key)
+							setId(photos[i].key)
+							console.log(photos[i].key)
 						}}
 					>
-						<img src={e.photo} alt=''></img>
+						<img src={e.photo} alt='' id={e.id}></img>
 						<p>{e.text}</p>
 					</motion.div>
 				))}
-				{isOpen ? (
-					photos.map(() =>
-						<div>
-							<img src></img>
+			</div>
+			{isOpen ? (
+					
+						<div className={scss['popupPicture']}>
+							<input
+								className={scss["closeBtn"]}
+								type="button"
+								onClick={() => {
+									toggleOpen()
+								}}
+								value="X"
+								id="buttonInput"
+							/>
+							<img src={photos[id].photo}></img>
 						</div>
-					)
+					
 				)
 					: null}
-			</div>
 		</div >
 	);
 }
