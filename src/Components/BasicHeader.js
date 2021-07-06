@@ -51,9 +51,9 @@ export default function BasicHeader() {
                         <button
                             onClick={(e) => { setBodyIndex(e.target.id); console.log(bodyIndex)}}
                             className={scss["navBarLink"]}
-                            id='poop'
+                            id='Register'
                             type='button'
-                        >Button
+                        >Register
                         </button>
                     </motion.div>
                 </ul>

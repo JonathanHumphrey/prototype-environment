@@ -54,7 +54,19 @@ export default function PhotoGallery() {
 			</div>
 			{isOpen ? (
 					
-						<div className={scss['popupPicture']}>
+				<motion.div
+					className={scss['popupPicture']}
+					initial={{ opacity: 1, scale: 0.75, y:-250 }}
+					animate={{ opacity: 1, scale: 1, y: 0}}
+					exit={{ opacity: 0, scale: 0, y: 1000 }}
+					transition={{
+						type: "spring",
+						bounce: 1,
+						stiffness: 1000,
+						damping: 300,
+						
+					}}
+				>
 							<input
 								className={scss["closeBtn"]}
 								type="button"
@@ -64,8 +76,8 @@ export default function PhotoGallery() {
 								value="X"
 								id="buttonInput"
 							/>
-							<img src={photos[id].photo}></img>
-						</div>
+							<img src={photos[id].photo} alt={photos[id].text}></img>
+						</motion.div>
 					
 				)
 					: null}

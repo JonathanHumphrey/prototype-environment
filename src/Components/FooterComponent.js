@@ -111,7 +111,10 @@ export default function FooterComponent() {
 							/>
 							<div className={scss["modalContent"]}>
 								<h3>{footerItemsList[id].title}</h3>
-								<p>{footerItemsList[id].content}</p>
+								<p>{footerItemsList[id].content[0]}</p>
+								{footerItemsList[id].content[1] ?
+									<p>{footerItemsList[id].content[1]}</p>
+								:null}
 							</div>
 						</motion.div>
 					) : null}

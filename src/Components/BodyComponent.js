@@ -8,6 +8,7 @@ import scss from "./body.module.scss";
 // Component Imports
 import Accordian from "./Accordian";
 import PhotoGallery from './PhotoGallery';
+import Registration from "./Registration";
 
 export default function BodyComponent() {
 
@@ -22,8 +23,8 @@ export default function BodyComponent() {
 				<Accordian />
 			: bodyIndex === 'Gallery' ?
 				<PhotoGallery />
-			: bodyIndex === 'poop' ?
-						<p>poop hahahahah</p>	
+			: bodyIndex === 'Register' ?
+				<Registration />	
 			:null				
 			}
 		</div>
